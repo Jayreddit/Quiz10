@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>20-Question Quiz</title>
+    <style>
+        /* ✅ Page Styles */
+        
+        body {
+            background: #0b0f14;
+            color: #e5e7eb;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .quiz-container {
+            background: #1a1f29;
+            padding: 20px;
+            max-width: 800px;
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #7c5cff;
+        }
+        
+        .question {
+            margin-bottom: 15px;
+        }
+        
+        .options label {
+            display: block;
+            background: #2a2f3c;
+            padding: 8px;
+            border-radius: 8px;
+            margin: 6px 0;
+            cursor: pointer;
+        }
+        
+        .options input {
+            margin-right: 8px;
+        }
+        
+        button {
+            background: #7c5cff;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        button:hover {
+            background: #6445d4;
+        }
+        
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+            text-align: center;
+            font-weight: bold;
+            color: #00e676;
+        }
+        /* ✅ Modal Styles */
+        
+        .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background: #1a1f29;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            color: #e5e7eb;
+            width: 350px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            animation: popIn 0.3s ease;
+        }
+        
+        .modal-content h2 {
+            margin-bottom: 15px;
+            color: #7c5cff;
+        }
+        
+        .close-btn {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: #7c5cff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        
+        .close-btn:hover {
+            background: #6445d4;
+        }
+        
+        @keyframes popIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="quiz-container">
+        <h1>LESSON 1</h1>
+        <p>1 take only and you have 45 minutes to answer. Good luck and God bless.</p>
+
+        <form id="quizForm">
+            <!-- ✅ Questions (unchanged, just properly indented) -->
+            <!-- ✅ Q1 -->
+            <div class="question">
+                <p> Refers to the personnel you need to complete your project.</p>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="a"> Other Resources</label>
+                    <label><input type="radio" name="q1" value="b"> Resource Plan</label>
+                    <label><input type="radio" name="q1" value="c"> Human resources</label>
+                    <label><input type="radio" name="q1" value="d"> Budget resources</label>
+                </div>
+            </div>
+
+            <!-- ✅ Q2 -->
+            <div class="question">
+                <p> Creates an appealing layout, color scheme, images, and user interface </p>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="a"> Graphics Designer</label>
+                    <label><input type="radio" name="q2" value="b"> Software Developer</label>
+                    <label><input type="radio" name="q2" value="c"> Project Designer</label>
+                    <label><input type="radio" name="q2" value="d"> Information Architech</label>
+                </div>
+            </div>
+
+            <!-- ✅ Q3 -->
+            <div class="question">
+                <p> is a document that shows how much money your project will need, where the money will be spent, and where it will come from</p>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="a"> Project Budget Plan </label>
+                    <label><input type="radio" name="q3" value="b"> Human resources</label>
+                    <label><input type="radio" name="q3" value="c"> Other Resources</label>
+                    <label><input type="radio" name="q3" value="d"> Resource Plan </label>
+                </div>
+            </div>
+
+            <!-- ✅ Q4 -->
+            <div class="question">
+                <p> Oversees planning and sets goals</p>
+                <div class="options">
+                    <label><input type="radio" name="q4" value="a"> Content Writer </label>
+                    <label><input type="radio" name="q4" value="b"> Project Designer</label>
+                    <label><input type="radio" name="q4" value="c"> Project Manager </label>
+                    <label><input type="radio" name="q4" value="d"> Graphics Designer</label>
+                </div>
+            </div>
+
+            <!-- ✅ Q5 -->
+            <div class="question">
+                <p> creates wireframes and visual layout</p>
+                <div class="options">
+                    <label><input type="radio" name="q5" value="a"> Procurement Officer </label>
+                    <label><input type="radio" name="q5" value="b"> Web Designer </label>
+                    <label><input type="radio" name="q5" value="c"> QA Tester </label>
+                    <label><input type="radio" name="q5" value="d"> IT Support </label>
+                </div>
+            </div>
+
+            <!-- ✅ Q6 -->
+            <div class="question">
+                <p> Money from team members</p>
+                <div class="options">
+                    <label><input type="radio" name="q6" value="a"> School Budget </label>
+                    <label><input type="radio" name="q6" value="b"> Sponsorship </label>
+                    <label><input type="radio" name="q6" value="c"> Fundraising </label>
+                    <label><input type="radio" name="q6" value="d"> Personal Contribution </label>
+                </div>
+            </div>
+
+            <!-- ✅ Q7 -->
+            <div class="question">
+                <p> Code the pages using HTML, CSS, and maybe JS</p>
+                <div class="options">
+                    <label><input type="radio" name="q7" value="a"> Plan the project</label>
+                    <label><input type="radio" name="q7" value="b"> Design layout</label>
+                    <label><input type="radio" name="q7" value="c"> Build Website</label>
+                    <label><input type="radio" name="q7" value="d"> Test website</label>
+                </div>
+            </div>
+
+            <!-- ✅ Q8 -->
+            <div class="question">
+                <p> The one who codes the website</p>
+                <div class="options">
+                    <label><input type="radio" name="q8" value="a"> QA tester</label>
+                    <label><input type="radio" name="q8" value="b"> Project Manager</label>
+                    <label><input type="radio" name="q8" value="c"> Web Developer </label>
+                    <label><input type="radio" name="q8" value="d"> Graphics Designer</label>
+                </div>
+            </div>
+
+            <!-- ✅ Q9 -->
+            <div class="question">
+                <p> In a ____________, your necessities take on different forms. </p>
+                <div class="options">
+                    <label><input type="radio" name="q9" value="a"> Resources</label>
+                    <label><input type="radio" name="q9" value="b"> Project</label>
+                    <label><input type="radio" name="q9" value="c"> Software</label>
+                    <label><input type="radio" name="q9" value="d"> Hardware</label>
+                </div>
+            </div>
+
+            <!-- ✅ Q10 -->
+            <div class="question">
+                <p> Builds the functional parts of the website</p>
+                <div class="options">
+                    <label><input type="radio" name="q10" value="a"> Software Developer </label>
+                    <label><input type="radio" name="q10" value="b"> Content Writer</label>
+                    <label><input type="radio" name="q10" value="c"> Procurement Officer</label>
+                    <label><input type="radio" name="q10" value="d">Project Manager </label>
+                </div>
+            </div>
+
+            <!-- ✅ Q11 -->
+            <div class="question">
+                <p> What programming language used for building a Website</p>
+                <div class="options">
+                    <label><input type="radio" name="q11" value="a"> CSS</label>
+                    <label><input type="radio" name="q11" value="b"> JAVA</label>
+                    <label><input type="radio" name="q11" value="c"> HTML</label>
+                    <label><input type="radio" name="q11" value="d"> PHYTON</label>
+                </div>
+            </div>
+
+            <!-- ✅ Q12 -->
+            <div class="question">
+                <p> The required skill for this role is Critical Thinking?</p>
+                <div class="options">
+                    <label><input type="radio" name="q12" value="a"> Software Developer</label>
+                    <label><input type="radio" name="q12" value="b"> Project Manager</label>
+                    <label><input type="radio" name="q12" value="c"> Graphics Designer</label>
+                    <label><input type="radio" name="q12" value="d"> Procurement Officer</label>
+                </div>
+            </div>
+
+            <!-- ✅ Q13 -->
+            <div class="question">
+                <p> They have the skill to lead the Project</p>
+                <div class="options">
+                    <label><input type="radio" name="q13" value="a"> Software Developer</label>
+                    <label><input type="radio" name="q13" value="b"> Project Manager</label>
+                    <label><input type="radio" name="q13" value="c"> Web Designer</label>
+                    <label><input type="radio" name="q13" value="d"> QA Tester</label>
+                </div>
+            </div>
+
+            <!-- ✅ Q14 -->
+            <div class="question">
+                <p> Refers to resources and information outside what is immediately available</p>
+                <div class="options">
+                    <label><input type="radio" name="q14" value="a"> Human Resources</label>
+                    <label><input type="radio" name="q14" value="b"> Budget Resources</label>
+                    <label><input type="radio" name="q14" value="c"> Tool Resources</label>
+                    <label><input type="radio" name="q14" value="d"> Other resources</label>
+                </div>
+            </div>
+
+            <!-- ✅ Q15 -->
+            <div class="question">
+                <p> This application software is used for calculation </p>
+                <div class="options">
+                    <label><input type="radio" name="q15" value="a"> Word</label>
+                    <label><input type="radio" name="q15" value="b"> Powerpoint</label>
+                    <label><input type="radio" name="q15" value="c"> Excel</label>
+                    <label><input type="radio" name="q15" value="d"> Valorant</label>
+                </div>
+            </div>
+
+
+            <button type="submit">Submit Quiz</button>
+        </form>
+
+        <div id="result"></div>
+    </div>
+
+    <!-- ✅ Score Modal -->
+    <div id="scoreModal" class="modal">
+        <div class="modal-content">
+            <h2>Quiz Completed!</h2>
+            <p id="modalScore"></p>
+            <button class="close-btn" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        // ✅ Correct Answers
+        const correctAnswers = {
+            q1: "c",
+            q2: "a",
+            q3: "a",
+            q4: "c",
+            q5: "b",
+            q6: "d",
+            q7: "c",
+            q8: "c",
+            q9: "b",
+            q10: "a",
+            q11: "c",
+            q12: "a",
+            q13: "b",
+            q14: "d",
+            q15: "c",
+
+        };
+
+        let submitted = false;
+
+        // 🔀 Shuffle helper
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        // ✅ Shuffle Questions + Options
+        window.addEventListener("DOMContentLoaded", () => {
+            const quizForm = document.getElementById("quizForm");
+            const questions = Array.from(quizForm.querySelectorAll(".question"));
+
+            shuffleArray(questions);
+
+            questions.forEach(q => {
+                // Shuffle the options inside each question
+                const options = Array.from(q.querySelectorAll("label"));
+                shuffleArray(options);
+                options.forEach(opt => q.querySelector(".options").appendChild(opt));
+
+                // Re-append question to maintain shuffled order
+                quizForm.insertBefore(q, quizForm.querySelector("button[type=submit]"));
+            });
+        });
+
+        // ✅ Submit Event
+        document.getElementById("quizForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            if (submitted) return;
+            submitted = true;
+
+            let score = 0;
+            const total = 20;
+
+            for (let i = 1; i <= total; i++) {
+                const qName = "q" + i;
+                const answer = document.querySelector(`input[name="${qName}"]:checked`);
+                const correct = correctAnswers[qName];
+
+                document.querySelectorAll(`input[name="${qName}"]`).forEach(opt => {
+                    const label = opt.parentElement;
+
+                    if (opt.value === correct) {
+                        label.style.background = "#1b5e20";
+                        label.style.color = "white";
+                    }
+
+                    if (answer && opt === answer && opt.value !== correct) {
+                        label.style.background = "#b71c1c";
+                        label.style.color = "white";
+                    }
+                });
+
+                if (answer && answer.value === correct) score++;
+            }
+
+            // Show result text
+            document.getElementById("result").innerText = `You scored ${score} out of ${total}`;
+
+            // Show modal
+            document.getElementById("modalScore").innerText = `You scored ${score} out of ${total}`;
+            document.getElementById("scoreModal").style.display = "flex";
+
+            // Lock quiz
+            document.querySelectorAll("input[type=radio]").forEach(input => input.disabled = true);
+            document.querySelector("button[type=submit]").disabled = true;
+        });
+
+        function closeModal() {
+            document.getElementById("scoreModal").style.display = "none";
+        }
+
+        // 🚨 Anti-cheating Reset
+        function resetQuiz() {
+            document.getElementById("quizForm").reset();
+            document.getElementById("result").innerText = "";
+            submitted = false;
+
+            // Reset styles
+            document.querySelectorAll("label").forEach(label => {
+                label.style.background = "";
+                label.style.color = "";
+            });
+
+            // Unlock quiz
+            document.querySelectorAll("input[type=radio]").forEach(input => input.disabled = false);
+            document.querySelector("button[type=submit]").disabled = false;
+
+            alert("⚠️ HALLA KA NAG SESEARCH KA RESET KA SAKEN MEN!");
+        }
+
+        document.addEventListener("visibilitychange", () => {
+            if (document.hidden && !submitted) resetQuiz();
+        });
+
+        window.addEventListener("blur", () => {
+            if (!submitted) resetQuiz();
+        });
+    </script>
+</body>
+
+</html>
